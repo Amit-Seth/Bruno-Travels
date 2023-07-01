@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(248, 248, 248)
+}
+
+.c-item{
+    height: 480px;
+}
+.c-img{
+    height: 100%;
+    object-fit: cover; /*this is use to save the pixels of the images we use in carousel*/
+    filter: brightness(0.6); /*This wroks as an Opacity for the images*/
+}
+
+.overview{
+    background-color: #d3dae1;
+    height: 180px;
+}
+

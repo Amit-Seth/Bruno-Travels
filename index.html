@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="x-icon" href="logoo.png">
+  <title>Travel with us..</title>
+</head>
+
+<body>
+  <!--remember we need to give different names to our CSS class to distinguish between bootstrap and our css classes(here we can put c- in our CSS class to differentiate )-->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <!--navbar-expand helps us to bring 4 line box when the screen size is getting smaller, to access other elements in phone size. We can adjust it according to our requirement like we change from lg to sm-->
+    <div class="container">
+      <a class="navbar-brand text-uppercase" href="#">Bruno-Travels</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!--ms-auto is used to shift the elements to the other side{to theright side of the navbar} (MarginStart-auto) for some languages, this is not correct but here it is okay in bootstrap-->
+          <li class="nav-item">
+            <a class="nav-link" href="#packages">Packages</a>
+            <!--there is a basic function we use, here in 'href' we put 'packages' id from packages section. when we click the link of "Packages" we directly get to the packages section in that page. -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="modal fade" tabindex="-1" id="booking-modal">
+      <!--purpose of writing "ID" is to signaling the buttons(which is in the carousel section "Book a tour") to open this modal with id and we use some attributes in the button section, i'll explain attributes in button section -->
+      <!--"fade class is use smoothening the opening and closing of our modal "-->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Book a Tour</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form action="#">
+              <div class="row g-2">
+                <!--here we want to get a grid system of bootstrap so that elements arrange themselves next to each other-->
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <!--form-floating is a bootsrtap used to give a floating effect to the label element inside the input element-->
+                    <input type="email" id="email1" class="form-control"
+                      placeholder="this placeholder is just for functionality not for actual placeholding text see for yourself, placeholder text still remains the label element">
+                    <!--form-control is a bootsrtap library-->
+                    <label for="email1">Email address</label> <!--we connect label with inut using id and for-->
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <select id="select1"
+                      class="form-select"><!--form-select is a bootstrap class, just to give a bootstrap design-->
+                      <option>Tromso, Norway - $899</option>
+                      <option>Reykjavik, Iceland - $799</option>
+                      <option>Yukon, Canada - $849</option>
+                    </select>
+                    <label for="select1">Pick a Tour</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <!--Remember id is important for carousel buttons and the indicators to work accordingly, 'carouselExample' id is embedded in 'data-bs-target' attribute to work. so check this thing if your button is not working -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img
+            src="https://images.unsplash.com/photo-1682687221175-fd40bbafe6ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="d-block w-100 c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4">
+            <!--here's the interesting fact, d-none(display none) and d-md-block(from medium screen display should be none) classes dissapearing our text in carousel on meduim screen size, so we remove them to make it work-->
+            <p class="fs-3 mt-5 text-uppercase">Discover the hidden world with</p> <!--we use font-size 3 class here-->
+            <h1 class="display-1 fw-bolder text-capitalize">The Bruno-Travels</h1>
+            <!--'display-1' is sort of like font size class, also using font-weight and text-capitalize-->
+            <button type="button" class="btn btn-primary active px-4 py-2 fs-5 mt-5" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</button>
+            <!--here we did some padding on x axis and y axis, font-size and margin from top-->
+            <!--'data-bs-toggle=modal' attribute is use to open and closing of our modal when button("Book a tour") is clicked & 'data-bs-target=#Booking-modal' is use to target the modal ID which is given in modal section-->
+            <!--toggle means opening and closing something, in this case modal is the victim of toggle-->
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1682687220566-5599dbbebf11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80" class="d-block w-100 c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4">
+            <p class="fs-3 mt-5 text-uppercase">The season has arrived</p>
+            <h1 class="display-1 fw-bolder text-capitalize">3 available tours</h1>
+            <button type="button" class="btn btn-primary active px-4 py-2 fs-5 mt-5" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</button>
+          </div>
+        </div>
+        <div class="carousel-item c-item">
+          <img src="https://images.unsplash.com/photo-1527489377706-5bf97e608852?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1918&q=80" class="d-block w-100 c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4">
+            <p class="fs-3 mt-5 text-uppercase">Destination activities</p>
+            <h1 class="display-1 fw-bolder text-capitalize">Go glacier hiking</h1>
+            <button type="button" class="btn btn-primary active px-4 py-2 fs-5 mt-5" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</button>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span><!--we also remove aria-hidden because of no need-->
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </section>
+
+    <section class="overview "><!--d-flex is the bootstrap class means display-flex-->
+      <div class="container h-100 d-flex align-items-center">
+        <!--this container class is used to constrain the width of the content with other elements(3 divs there)-->
+        <!--h-100 bootsrtap class is used take up 100% height of the parent element(in this overview class is the parent element with its height given in css stylesheet ) -->
+        <div class="row w-100 text-center fs-4">
+          <!-- w-100 class is use to give row 100% width of the parent element (overview is the parent here) -->
+          <!--text-center is used to center the text in their own column as well, as they inherit this class from row, so why we put to all 3 divs instead do it in the row class. Including the font-size of the text (fs-4)-->
+          <div class="col-md">
+            <i
+              class="bi bi-airplane-fill me-2"></i><!--me-2 is the margin end class used to give margin to the right side of the icon -->
+            3 amazing destinations
+          </div>
+          <div class="col-md">
+            <!--'col-xl' this class helps us maintain the flex layout we created only in extra-large screens after that, all 3 divs arrange themselves in a stack layout and that's what we wanted -->
+            <!--but now i change from col-xl to col-md, see for yourself-->
+            <i class="bi bi-wallet-fill me-2"></i>
+            Only pay 5% up front
+          </div>
+          <div class="col-md">
+            <i class="bi bi-patch-check-fill me-2"></i>
+            1000's of customers
+          </div>
+        </div>
+    </section>
+
+    <section id="packages" class="pt-5">
+      <h2 class="text-center my-5">Packages</h2>
+
+      <div class="container">
+        <div class="row g-5"><!--w-75 class is not suitable here-->
+          <div class="col-lg">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1682687220015-186f63b8850a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80" height="300px" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Tromso, Norway - $899</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="btn btn-primary active" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" height="300px" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Reykjavik, Iceland - $799</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="btn btn-primary active" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1685821085722-2885f04a4610?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" height="300px" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Yukon, Canada - $849</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="btn btn-primary active" data-bs-toggle="modal" data-bs-target="#booking-modal">Book a Tour</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-5"> <!-- py is a bootstrap class for padding in y axis(top and bottom padding)-->
+      <h2 class="my-5 text-center">FAQ</h2>
+      <div class="container">
+        <div class="accordion w-75 mx-auto" id="accordionExample"> <!--here, 'w-75' is use to give 75% width from parent element(this is use to adjust width of Accordion) & 'mx-auto' is use to horizontally center fixed-width block level content(in our case Accordion is that content)--->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark py-5 mt-5">
+      <div class="container text-light text-center">
+        <p class="display-5 mb-3">Bruno-Travels</p><!--display-5 working as font-size controller only nothing else-->
+        <small class="text-white-50">&copy; Copyright. All rights reserved.</small>
+      </div>
+    </footer>
+  </main>
+
+</body>
+
+</html>
